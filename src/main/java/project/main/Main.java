@@ -22,7 +22,6 @@ public class Main {
             System.out.println("tänne");
             db = new DatabaseImp("DATABASE_CORRECT");
         } else {
-            System.out.println("tonne");
             db = new DatabaseImp("jdbc:sqlite:lukuvinkki.db");
         }
         BookDao bookDao = new BookDao(db);

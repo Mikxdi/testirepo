@@ -52,6 +52,7 @@ public class BookDao {
     }
 
     public void add(String title, String author, String ISBN, String description, String url) {
+        System.out.println("Lisäys");
         if (title.isEmpty() || author.isEmpty() || ISBN.isEmpty() || description.isEmpty() || url.isEmpty()) {
             return;
         }

@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}"/>
+    <head>
+        <title>Mahtavin Lukuvinkki-sovellus</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+
+    <body>
+        
+        <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" style="font-size: 25px;" th:href="@{~/}">Koti</a>
+				</li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-size: 25px;" th:href="@{~/allTips}">Lis&auml;&auml; lukuvinkki</a>
+                </li>
+            </ul>
+        </nav>
+        <div style="padding: 10px 0px;">
+        	<h1>Lukuvinkki</h1>
+        </div>
+        <p>Sovellus, jonka avulla voit laittaa lukuvinkkisi j&auml;rjestykseen!</p>
+
+    </body>
+</html>

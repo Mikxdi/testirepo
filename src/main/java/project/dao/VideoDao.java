@@ -58,7 +58,7 @@ public class VideoDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(
                     "INSERT INTO Video (title, author, description, url, checked) "
-                    + "VALUES (?, ?, ?, ?, 0)");
+                    + "VALUES (?, ?, ?, ?, false)");
             stmt.setString(1, title);
             stmt.setString(2, author);
             stmt.setString(3, description);

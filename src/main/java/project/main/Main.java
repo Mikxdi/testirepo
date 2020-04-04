@@ -18,9 +18,8 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         Database db;
         System.out.println("Hello world");
-        if(System.getenv("DATABASE_CORRECT") != null){
-            System.out.println("tänne");
-            db = new DatabaseImp("DATABASE_CORRECT");
+        if(System.getenv("JDBC_DATABASE_URL") != null){
+            db = new DatabaseImp(System.getenv("JDBC_DATABASE_URL"));
         } else {
             db = new DatabaseImp("jdbc:sqlite:lukuvinkki.db");
         }

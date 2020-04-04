@@ -15,7 +15,7 @@ public class DatabaseImp implements Database {
     private String databaseUrl;
 
     public DatabaseImp(String databaseUrl) throws SQLException {
-        this.databaseUrl = databaseUrl;
+        this.databaseUrl = "jdbc:postgresql://" + databaseUrl;
         init();
     }
 

@@ -35,7 +35,7 @@ public class DatabaseImp implements Database {
 
     @Override
     public Connection getConnection() throws SQLException {
-        if(System.getenv("DATABASE_CORRECT" == null)){
+        if(System.getenv("DATABASE_CORRECT") == null){
             return DriverManager.getConnection(databaseUrl);
         }else{
             return DriverManager.getConnection(databaseUrl, System.getenv("USERNAME_DB"), System.getenv("PASSWORD_DB"));

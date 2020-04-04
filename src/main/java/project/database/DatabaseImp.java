@@ -38,7 +38,8 @@ public class DatabaseImp implements Database {
         if(System.getenv("DATABASE_CORRECT") == null){
             return DriverManager.getConnection(databaseUrl);
         }else{
-            return DriverManager.getConnection(databaseUrl, System.getenv("USERNAME_DB"), System.getenv("PASSWORD_DB"));
+            String dbstring = System.getenv("JDBC_DATABASE_URL");
+            return DriverManager.getConnection(dbstring);
         }
     }
 

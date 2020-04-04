@@ -15,7 +15,7 @@ public class DatabaseImp implements Database {
     private String databaseUrl;
 
     public DatabaseImp(String databaseUrl) throws SQLException {
-        this.databaseUrl = "jdbc:postgresql://" + databaseUrl;
+        this.databaseUrl = databaseUrl;
         init();
     }
 
@@ -35,7 +35,11 @@ public class DatabaseImp implements Database {
 
     @Override
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(databaseUrl);
+        if(System.getenv("DATABASE_CORRECT" == null)){
+            return DriverManager.getConnection(databaseUrl);
+        }else{
+            return DriverManager.getConnection(databaseUrl, System.getenv("USERNAME_DB"), System.getenv("PASSWORD_DB"));
+        }
     }
 
     private void createTables() throws SQLException {

@@ -17,9 +17,11 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         System.out.println("Hello world");
-
-        Database db = new DatabaseImp("jdbc:sqlite:lukuvinkki.db");
-        
+        if(System.getenv("DATABASE_URL") != null){
+            Database db = new DatabaseImp("DATABASE_URL");
+        } else {
+            Database db = new DatabaseImp("jdbc:sqlite:lukuvinkki.db");
+        }
         BookDao bookDao = new BookDao(db);
         VideoDao videoDao = new VideoDao(db);
         DatabaseDao dbDao = new DatabaseDao(bookDao, videoDao);

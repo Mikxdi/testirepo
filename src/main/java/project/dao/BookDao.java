@@ -60,13 +60,18 @@ public class BookDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(
                     "INSERT INTO Book (title, author, ISBN, description, url, checked) "
-                    + "VALUES (?, ?, ?, ?, ?, false)");
+                    + "VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setString(1, title);
             stmt.setString(2, author);
             stmt.setString(3, ISBN);
             stmt.setString(4, description);
             stmt.setString(5, url);
-
+            if(System.getenv("JDBC_DATABASE_URL")== null){
+                int value = 0;
+                stmt.setInt(6, value);
+            }else{
+                stmt.setBoolean(6, false);
+            }
             stmt.executeUpdate();
             
         } catch (SQLException e) {

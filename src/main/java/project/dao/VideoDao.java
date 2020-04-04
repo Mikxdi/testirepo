@@ -58,11 +58,17 @@ public class VideoDao {
         try {
             PreparedStatement stmt = conn.prepareStatement(
                     "INSERT INTO Video (title, author, description, url, checked) "
-                    + "VALUES (?, ?, ?, ?, false)");
+                    + "VALUES (?, ?, ?, ?, ?)");
             stmt.setString(1, title);
             stmt.setString(2, author);
             stmt.setString(3, description);
             stmt.setString(4, url);
+            if(System.getenv("JDBC_DATABASE_URL")== null){
+                int value = 0;
+                stmt.setInt(5, value);
+            }else{
+                stmt.setBoolean(5, false);
+            }
 
             stmt.executeUpdate();
             
